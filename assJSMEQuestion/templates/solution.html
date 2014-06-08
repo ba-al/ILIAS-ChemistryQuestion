@@ -1,0 +1,16 @@
+<p>{QUESTIONTEXT}</p>
+<!-- style="pointer-events:none;" -->
+<div id="jsme_containerSolution{ID}" style="pointer-events:none;"></div>
+<script>
+    //this function will be called after the JavaScriptApplet code has been loaded.
+   il.Util.addOnLoad(
+		function(){
+			jsmeAppletSolution = new JSApplet.JSME("jsme_containerSolution{ID}", "800px", "700px");
+			jsmeAppletSolution.readMolecule("{MOLECULE}");
+			jsmeAppletSolution.options("{OPTIONS}");
+			jsmeAppletSolution.setHelpURL("");
+		}
+   ); 
+</script>
+
+
