@@ -1,6 +1,6 @@
 <p>{QUESTIONTEXT}</p>
 <!-- style="pointer-events:none;" -->
-<div id="jsme_container" onmouseup="getJmeFile();"></div>
+<div id="jsme_container" onmouseup="getJmeFile();" onmousemove="color();"></div>
 <form method="POST" action="" id="answerForm">
 	<input type="hidden" id="answerString" name="sampleSolution" value="{MOLECULE}" />
 </form>
@@ -13,6 +13,7 @@
         jsmeApplet.readMolecule("{MOLECULE}");
         jsmeApplet.options("{OPTIONS}");
         jsmeApplet.setHelpURL("");
+        color();
    }
    
    function findButtonbyTextContent() {
@@ -20,8 +21,18 @@
 		for (var i=0; i<buttons.length; i++) {
 			if (buttons[i].firstChild.nodeValue == 'Help')
 				buttons[i].style = "display:none";
-		}  
-}
+		}  	
+		color();	
+	}
+	
+	function color(){
+	   var text = document.getElementsByTagName("text");
+		for (i=0; i<text.length; i++){
+			if ( text[i].getAttribute("fill") == "rgb(255,200,0)" ) {
+				text[i].setAttribute("fill", "rgb(205,24,25)");
+			}  		
+		}
+	}   
    
 	function getJmeFile() {	
 		// hide help-button in about-window			
